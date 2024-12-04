@@ -4,11 +4,14 @@ const Home = () => <h1>Home Page</h1>;
 
 const Test = () => {
   // Check if the app is installed on iOS
+  const onClick = () => {
+    window.location.href = "com.performativ.smallbank://test";
+  }
   return (
     <div>
       <h1>Welcome to the Fallback Page</h1>
       <p>If your app is installed, it should open automatically. If not, you are seeing this fallback page.</p>
-      <a href="https://apps.apple.com/app/idYOUR_APP_ID" target="_blank" rel="noopener noreferrer">
+      <a onClick={onClick}  target="_blank" rel="noopener noreferrer">
         Download the App
       </a>
     </div>
