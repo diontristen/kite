@@ -1,11 +1,27 @@
 {
   "applinks": {
-    "apps": [],
-    "details": [{
-      "appID": "9837PMGZZ9.com.performativ.smallbank",
-      "paths": [
-        "/test"
-      ]
-    }]
+    "details": [
+      {
+        "appIDs": [
+          "9837PMGZZ9.com.performativ.smallbank"
+        ],
+        "components": [
+          {
+            "/": "*",
+            "comment": "Matches all routes"
+          }
+        ]
+      }
+    ]
+  },
+  "activitycontinuation": {
+    "apps": [
+      "9837PMGZZ9.com.performativ.smallbank"
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "9837PMGZZ9.com.performativ.smallbank"
+    ]
   }
 }
