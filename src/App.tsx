@@ -15,7 +15,9 @@ const Test = () => {
   // Check if the app is installed on iOS
   const [name, setName] = useState('');
   const onClick = () => {
-    window.location.href = `com.performativ.${name}://?forwardTo=${forwardTo}`;
+    const redirectURL = `com.performativ.${name}://?forwardTo=${forwardTo}`;
+    alert(redirectURL)
+    window.location.href = redirectURL
   }
 
   useEffect(() => {
