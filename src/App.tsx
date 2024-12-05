@@ -1,25 +1,41 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+
+const isOnAndroid = () => {
+  return /Android/i.test(window.navigator.userAgent)
+}
+
+
 
 const Home = () => <h1>Home Page</h1>;
 
 const Test = () => {
   // Check if the app is installed on iOS
+  const [name, setName] = useState('');
   const onClick = () => {
-    window.location.href = "com.performativ.smallbank://test";
+    window.location.href = `com.performativ.${name}`;
   }
 
   useEffect(() => {
-    window.location.href =  "com.performativ.smallbank://test";
-    setTimeout(() => {
-      // Redirect to the App Store or stay on the webpage
-      window.location.href = '/'
-    }, 500);
+    let tenantName = 'smallbank'
+    const androidDevice = isOnAndroid()
+    if (tenantName === 'smallbank' && androidDevice) {
+      tenantName = tenantName + 'app'
+    }
+
+    setName(tenantName)
+    // window.location.href =  "com.performativ.smallbank";
+    // setTimeout(() => {
+    //   // Redirect to the App Store or stay on the webpage
+    //   window.location.href = '/'
+    // }, 500);
   }, [])
   return (
     <div>
       <h1>Welcome to the Fallback Page</h1>
       <p>If your app is installed, it should open automatically. If not, you are seeing this fallback page.</p>
+      <p>Here is your tenant name: {name}</p>
       <a onClick={onClick}  target="_blank" rel="noopener noreferrer">
         Download the App
       </a>
