@@ -18,6 +18,9 @@ const Test = () => {
     const redirectURL = `com.performativ.${name}://?forwardTo=${forwardTo}`;
     alert(redirectURL)
     window.location.href = redirectURL
+    const url = forwardTo.replace('&redirect=true', '').replace('?redirect=true', '?').replace(/&$/, '')
+    alert(url)
+    window.location.href = url // only works if logged in
   }
 
   useEffect(() => {
