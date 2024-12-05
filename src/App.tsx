@@ -13,8 +13,8 @@ const Test = () => {
     window.location.href =  "com.performativ.smallbank://test";
     setTimeout(() => {
       // Redirect to the App Store or stay on the webpage
-      window.location.href = '/';
-    }, 2000);
+      
+    }, 500);
   }, [])
   return (
     <div>
