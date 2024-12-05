@@ -11,10 +11,11 @@ const isOnAndroid = () => {
 const Home = () => <h1>Home Page</h1>;
 
 const Test = () => {
+  const forwardTo = 'https://app.smallbank.site/client/5229/documents/newsletters?id=56182&name=Email%2Bnotification%2Btest&ft=pdf&redirect=true'
   // Check if the app is installed on iOS
   const [name, setName] = useState('');
   const onClick = () => {
-    window.location.href = `com.performativ.${name}`;
+    window.location.href = `com.performativ.${name}://?forwardTo=${forwardTo}`;
   }
 
   useEffect(() => {
